@@ -46,7 +46,7 @@ def two_sum(arr, target):
   i = 0
   j = len(arr) - 1
   
-  while i <= j:
+  while i < j:
     e1 = arr[i]
     e2 = arr[j]
     el_sum = e1 + e2
