@@ -8,15 +8,16 @@ target = 13
 # return the indices of the two numbers whose sum is target.
 
 def two_sum_elements(arr, target):
-  seen = set()
-  for i in arr:
-    seen.add(i)
-  
-  for i in arr:
-    k = target - i
-    if k in seen:
-      return [i, k]
-    
+  seen = {}
+
+  for i, x in enumerate(arr):
+      needed = target - x
+
+      if needed in seen:
+          return [needed, x]
+
+      seen[x] = i
+
   return [-1, -1]
 
 result = two_sum_elements(arr, target)
@@ -24,17 +25,16 @@ print(result)
 
 
 def two_sum_indices(arr, target):
-  seen = dict()
-  for i in range(0, len(arr)):
-    element = arr[i]
-    seen[element] = i
-  
-  for i in range(0, len(arr)):
-    element = arr[i]
-    k = target - element
-    if k in seen:
-      return [i, seen[k]]
-    
+  seen = {}
+
+  for i, x in enumerate(arr):
+      needed = target - x
+
+      if needed in seen:
+          return [seen[needed], i]
+
+      seen[x] = i
+
   return [-1, -1]
 
 result = two_sum_indices(arr, target)
